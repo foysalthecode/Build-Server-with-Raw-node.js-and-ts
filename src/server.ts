@@ -1,17 +1,8 @@
 import http, { IncomingMessage, Server, ServerResponse } from "http";
 import path from "path";
 import config from "./config";
-import addRoutes, { RouteHandler, routes } from "./helpers/RouteHandler";
-
-addRoutes("GET", "/", (req, res) => {
-  res.writeHead(200, { "content-type": "application/json" });
-  res.end(
-    JSON.stringify({
-      message: "Hello from node js and typescript add routes",
-      path: req.url,
-    })
-  );
-});
+import { RouteHandler, routes } from "./helpers/RouteHandler";
+import "./routes";
 
 const server: Server = http.createServer(
   (req: IncomingMessage, res: ServerResponse) => {
@@ -34,28 +25,6 @@ const server: Server = http.createServer(
         })
       );
     }
-
-    //Root route
-    // if (req.url === "/" && req.method === "GET") {
-    //   res.writeHead(200, { "content-type": "application/json" });
-    //   res.end(
-    //     JSON.stringify({
-    //       message: "Hello from node js and typescript",
-    //       path: req.url,
-    //     })
-    //   );
-    // }
-
-    //health route
-    // if (req.url == "/api" && req.method === "GET") {
-    //   res.writeHead(200, { "content-type": "application/json" });
-    //   res.end(
-    //     JSON.stringify({
-    //       message: "Health status ok",
-    //       path: req.url,
-    //     })
-    //   );
-    // }
 
     //post api
     // if (req.url === "/api/users" && req.method === "POST") {
