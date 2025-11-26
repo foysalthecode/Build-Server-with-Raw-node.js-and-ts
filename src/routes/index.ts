@@ -7,6 +7,8 @@ addRoutes("GET", "/", (req, res) => {
   sendJson(res, 200, { message: "Hello from node js and ts", path: req.url });
 });
 
+
+//get route
 addRoutes("GET", "/api", (req, res) => {
   sendJson(res, 200, {
     message: "Health status ok...",
@@ -14,12 +16,13 @@ addRoutes("GET", "/api", (req, res) => {
   });
 });
 
+
+//post route
 addRoutes("POST", "/api/users", async (req, res) => {
   const body = await parseBody(req);
 
   const users = readUsers();
   const newUser = {
-    id: Date.now(),
     ...body,
   };
 
@@ -28,3 +31,5 @@ addRoutes("POST", "/api/users", async (req, res) => {
 
   sendJson(res, 201, { success: true, data: body });
 });
+
+

@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "Bob marley"
+  },
+  {
+    "id": 2,
+    "name": "Foysal"
+  },
+  {
+    "id": 3,
+    "name": "Ariyan"
+  }
+]
